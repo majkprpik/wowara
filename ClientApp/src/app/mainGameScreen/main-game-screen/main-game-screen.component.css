@@ -39,7 +39,7 @@ button {
 .game-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
 }
@@ -47,23 +47,26 @@ button {
 .game-header {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 200px;
 }
 
 .game-logo {
-    height: 200px;
+    position: absolute;
+    left: 0;
+    height: 150px;
     scale: 1;
+    justify-self: left;
     display: flex;
-    flex-direction: start;
     justify-content: start;
     align-items: left;
     width: 30%;
 }
 
 .game-score {
+    position: absolute;
     background-image: url(/assets/images/banners/currentscore.png);
     background-image: contain;
     background-repeat: no-repeat;
