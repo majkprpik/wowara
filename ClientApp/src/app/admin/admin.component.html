@@ -30,4 +30,12 @@
         
             <button type="submit" class="btn btn-primary" (click)="addNewCreature()">Submit</button>      
     </div>
+    <div class="all-creatures">
+        <h3>All Creatures</h3>
+        <div class="creature" *ngFor="let c of allCreatures">
+            {{c.name}}
+            {{c.id}}
+            <img [src]="c.imageUrl" alt="">
+        </div>
+    </div>
 </div>

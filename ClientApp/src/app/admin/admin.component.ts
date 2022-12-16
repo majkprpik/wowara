@@ -1,7 +1,6 @@
 import { Family, Creature } from './../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -11,9 +10,10 @@ import { ToastrService } from 'ngx-toastr';
 export class AdminComponent implements OnInit {
   families: Family[] = [];
   creatures: Creature[] = [];
+  allCreatures: Creature[] = [];
   newCreature: NewCreature  = {id: 0, displayId: 0, name: '', imageUrl: '', attack: 0};
 
-  constructor(private adminService: AdminService, private toastr: ToastrService ) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.adminService.families.subscribe((data: any) => {
@@ -22,6 +22,9 @@ export class AdminComponent implements OnInit {
     this.adminService.creatures.subscribe((data: any) => {
       this.creatures = data;
     }); 
+    this.adminService.allCreatures.subscribe((data: any) => {
+      this.allCreatures = data;
+    });
   }
 
   selectFamily(familyName: string) {
@@ -41,11 +44,11 @@ export class AdminComponent implements OnInit {
   addNewCreature() {
     this.adminService.addNewCreature(this.newCreature).subscribe(
       (data: any) => {
-        this.toastr.success('SUCCESS', 'New creature added!');
+        alert('New creature added!');
         this.newCreature = {id: 0, displayId: 0, name: '', imageUrl: '', attack: 0};
       },
       (error: any) => {
-        this.toastr.error('PROBLEM', "Attack " + this.newCreature.attack + " is already taken!");
+        alert("Attack " + this.newCreature.attack + " is already taken!");
       }
     );
   }

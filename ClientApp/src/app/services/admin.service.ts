@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AdminService {
   families = new BehaviorSubject<Family[]>([]);
   creatures = new BehaviorSubject<Creature[]>([]);
-  
+  allCreatures = new BehaviorSubject<Creature[]>([]);
   private baseUrl: string = '';
   private familyUrl: string =
     'https://us.api.blizzard.com/data/wow/creature-family/index?namespace=static-us&locale=en_US&access_token=EUfURerrbjX0DY02i0B1QZUessOZ9dl4Wq';
@@ -22,6 +22,7 @@ export class AdminService {
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
     this.initFamilies();
+    this.getAllCreatures();
   }
 
   getAllFamilies() {
@@ -71,6 +72,12 @@ export class AdminService {
 
   addNewCreature(creature: Creature) {
     return this.http.post(this.baseUrl + 'api/creature/create', creature);
+  }
+
+  getAllCreatures() {
+    return this.http.get(this.baseUrl + 'api/creature/getall').subscribe((data: any) => {
+      this.allCreatures.next(data);
+    });
   }
 }
 
