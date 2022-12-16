@@ -63,7 +63,12 @@
 </div>
 
 <div *ngIf="playAgainScreen" class="play-again">
-    <div>{{"Final Score:" + score}}</div>
-    <p>Hemet Nesingwary is proud of you!</p>
-    <button (click)="playAgain()">Play Again</button>
+    <div class="logo-container">
+        <img src="/assets/images/gamelogo/wowaralogo.png" />
+      </div>
+    <div class="final-score">{{"Final Score:" + score}}</div>
+    <div>
+        <p class="final-title">Hemet Nesingwary is proud of you!</p>
+    </div>
+    <button class="play-again-button" (click)="playAgain()"> <img src="/assets/images/buttons/buttonplayagain.png" /></button>
 </div>
