@@ -1,11 +1,12 @@
 .lists {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 0 -10px;
-  padding: 0;
+  padding: 30px;
   list-style: none;
-  gap: 33px;
+  color: white;
+  gap: 30px;
 }
 .family-list {
   display: flex;
@@ -16,6 +17,7 @@
   margin: 0 -10px;
   padding: 0;
   list-style: none;
+  color: white;
 }
 
 .family {
@@ -28,7 +30,7 @@
   // padding: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: rgb(41, 54, 49);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
@@ -41,7 +43,7 @@
 }
 
 .family:hover {
-  background-color: rgb(202, 238, 226);
+  background-color: rgb(56, 68, 64);
 }
 
 .creature-list {
@@ -65,7 +67,7 @@
   // padding: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: rgb(29, 38, 34);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
@@ -78,7 +80,7 @@
 }
 
 .creature:hover {
-  background-color: rgb(238, 202, 205);
+  background-color: rgb(71, 60, 61);
 }
 
 .all-creatures {
