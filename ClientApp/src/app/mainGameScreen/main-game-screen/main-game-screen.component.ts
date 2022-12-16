@@ -35,14 +35,14 @@ export class MainGameScreenComponent implements OnInit {
     //console.log(choice);
     this.wasStronger=false;
     if(choice==='stronger' && this.creaturePlayer.attack < this.creatureOpponent.attack){
-      this.creaturePlayer.attack < this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
+      this.creaturePlayer.attack > this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
       this.score += 1;
       setTimeout(()=>{
         this.isCorrect = false;
       },1500)
       this.isCorrect=true;
     } else if(choice==='weaker' && this.creaturePlayer.attack > this.creatureOpponent.attack){
-      this.creaturePlayer.attack < this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
+      this.creaturePlayer.attack > this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
       this.score += 1;
       this.isCorrect=true;
       setTimeout(()=>{

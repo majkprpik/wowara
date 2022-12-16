@@ -21,7 +21,7 @@ export class CreatureService{
         this.baseUrl + 'api/Creature/GetAll'
       ).subscribe(data=>{
         this.creatureList= data
-        this.creaturePlayingList=this.creatureList
+        this.creaturePlayingList=[...this.creatureList]
       })
       
     }
@@ -33,14 +33,14 @@ export class CreatureService{
  
    if(this.creaturePlayingList.length > 1){
      creature= this.creaturePlayingList.splice(randomIndex,1)[0]
-     //console.log(this.creatureList);
+     console.log(this.creatureList);
      
     }
     return creature
    
   }
   resetCreatureList(){
-    this.creaturePlayingList=this.creatureList;
+    this.creaturePlayingList=[...this.creatureList];
   }
 
   }

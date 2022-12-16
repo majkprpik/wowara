@@ -83,8 +83,8 @@
             <img class="value-icon" src="/assets/images/icons/iconpower.png">
             <p class="value">{{creaturePlayer.attack}}</p>
             <div>
-                <img *ngIf="wasStronger" class="value-sign" src="/assets/images/icons/icongreater.png">
-                <img *ngIf="!wasStronger" class="value-sign" src="/assets/images/icons/iconsmaller.png">
+                <img *ngIf="!wasStronger" class="value-sign" src="/assets/images/icons/icongreater.png">
+                <img *ngIf="wasStronger" class="value-sign" src="/assets/images/icons/iconsmaller.png">
             </div>
             
             <p class="value">{{creatureOpponent.attack}}</p>
