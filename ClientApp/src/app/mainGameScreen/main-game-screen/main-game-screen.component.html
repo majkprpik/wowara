@@ -1,4 +1,4 @@
-<div class="main-container" *ngIf="!isPlaying">
+<div class="main-container" *ngIf="!isPlaying" >
   <div class="logo-container">
     <img src="/assets/images/gamelogo/wowaralogo.png" />
   </div>
@@ -11,8 +11,9 @@
   </div>
 </div>
 
-<div *ngIf="isPlaying">
-  <div class="game-container">
+<!-- [ngStyle]="{'background-image' : 'url(' + 'assets/images/background/backgroundwowara2.png)'}" -->
+<div *ngIf="isPlaying" >
+  <div class="game-container" >
     <div class="game-header">
       <div class="game-logo">
         <img src="/assets/images/gamelogo/wowaralogo.png" />
@@ -31,6 +32,7 @@
       </div>
       <div class="game-opponent">
         <app-creature
+            *ngIf="!youLost"
           [isPlayerCreature]="false"
           [creature]="creatureOpponent"
           (playerChoseOption)="checkIfCorrect($event)"
@@ -58,4 +60,10 @@
         </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="playAgainScreen" class="play-again">
+    <div>{{"Final Score:" + score}}</div>
+    <p>Hemet Nesingwary is proud of you!</p>
+    <button (click)="playAgain()">Play Again</button>
 </div>

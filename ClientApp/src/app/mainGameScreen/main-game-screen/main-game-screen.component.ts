@@ -45,7 +45,17 @@ export class MainGameScreenComponent implements OnInit {
   gameLost(){
     this.creatureService.resetCreatureList();
     this.youLost=true;
+    setTimeout(()=>{
+      this.playAgainScreen = true;
+    },1000)
 
+  }
+  playAgain(){
+    this.youLost=false;
+    this.playAgainScreen=false;
+    this.creaturePlayer=this.creatureService.getRandomCreature()
+    this.creatureOpponent=this.creatureService.getRandomCreature()
+    this.score=0;
   }
 
 }
