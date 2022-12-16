@@ -1,21 +1,31 @@
 <div *ngIf="isPlayerCreature">
-    <img>
-    <p>{{creature.name}}</p>
-    <div>
-        <img [src]='creature.imageUrl'>
-        <p *ngIf="isPlayerCreature">{{creature.attack}}</p>
-        <button *ngIf="!isPlayerCreature" (click)="chooseBtn('stronger')">Stronger</button>
-        <button *ngIf="!isPlayerCreature" (click)="chooseBtn('weaker')">Weaker</button>
+    <div class="your-creature">
+        <div>
+            <p class="creature-name">{{creature.name}}</p>
+        </div>
+       <div><img class="creature-image" [src]='creature.imageUrl'></div>
+         <div class="creature-power">
+                 <div class="power-icon"></div>
+                <p *ngIf="isPlayerCreature" class="creature-attack">{{creature.attack}}</p>
+      </div>
     </div>
 </div>
 
 <div *ngIf="!isPlayerCreature">
-    <img>
-    <p>{{creature.name}}</p>
-    <div>
-        <img [src]='creature.imageUrl' >
-        <p *ngIf="isPlayerCreature">{{creature.attack}}</p>
-        <button *ngIf="!isPlayerCreature" (click)="chooseBtn('stronger')">Stronger</button>
-        <button *ngIf="!isPlayerCreature" (click)="chooseBtn('weaker')">Weaker</button>
+    <div class="your-opponent">
+        <div class="new-opponent">
+            <div class="quest-logo">
+            </div>
+            <div class="quest-title">
+                <p class="new-quest">Next Opponent!</p>
+            </div>
+        </div>
+        <div style="margin-bottom: 30px;">
+            <p class="creature-name">is <span style="font-size: 28px; color: #F4FF76;">{{creature.name}}</span> <br> stronger or weaker?</p>
+        </div>
+        <div class="action-buttons">
+            <button class="action-button-stronger" *ngIf="!isPlayerCreature" (click)="chooseBtn('stronger')"></button>
+            <button class="action-button-weaker" *ngIf="!isPlayerCreature" (click)="chooseBtn('weaker')"></button>
+        </div>
     </div>
 </div>

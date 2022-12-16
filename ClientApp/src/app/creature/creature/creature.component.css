@@ -1,0 +1,117 @@
+button {
+    all: unset;
+}
+
+.your-creature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/assets/images/banners/creaturebanner.png);
+    background-image: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 340px;
+    height: 500px;
+    width: 340px;
+}
+
+.creature-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 500px;
+    border: 4px;
+    border-style: solid;
+    border-color: #CF5C2B;
+}
+
+.creature-name {
+    font-family: warcraft;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.creature-power {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.power-icon {
+    background-image: url(/assets/images/icons/iconpower.png);
+    background-image: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin-top: 20px;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+.creature-attack {
+    margin-top: 24px;
+    font-family: warcraft;
+    color: white;
+    font-size: 26px;
+}
+
+.your-opponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    width: 340px;
+}
+
+.new-opponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.quest-logo {
+    background-image: url(/assets/images/icons/iconopponent.png);
+    background-image: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    margin-top: 20px;
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.new-quest {
+    margin-top: 35px;
+    font-family: warcraft;
+    color: white;
+    font-size: 26px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-button-stronger {
+    background-image: url(/assets/images/buttons/buttonstronger.png);
+    background-image: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 140px;
+    height: 100px;
+    width: 140px;
+}
+
+.action-button-weaker {
+    background-image: url(/assets/images/buttons/buttonweaker.png);
+    background-image: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 140px;
+    height: 100px;
+    width: 140px;
+}
