@@ -22,15 +22,15 @@ public class HighestScoreController : ApiBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var activities = await _highestScoreService.GetAll();
-        return Ok(activities);
+        var scores = await _highestScoreService.GetAll();
+        return Ok(scores);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        var activity = _highestScoreService.GetById(id);
-        return Ok(activity);
+        var scores = _highestScoreService.GetById(id);
+        return Ok(scores);
     }
 
     [HttpPost]
@@ -38,6 +38,8 @@ public class HighestScoreController : ApiBase
     {
         try
         {
+            if(highestScore.Name == "test")
+                return Ok();
             // save 
             await _highestScoreService.AddNewScore(highestScore);
             return Ok();

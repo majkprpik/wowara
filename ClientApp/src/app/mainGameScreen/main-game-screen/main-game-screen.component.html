@@ -3,6 +3,7 @@
     <img src="/assets/images/gamelogo/wowaralogo.png" />
   </div>
   <div class="button-container">
+    <input [(ngModel)]="playerName" type="text">
     <div class="buttonPlayDiv" *ngIf="!isPlaying" (click)="play()">
       <button class="buttonplay">
         <img src="/assets/images/buttons/buttonplay.png" />
