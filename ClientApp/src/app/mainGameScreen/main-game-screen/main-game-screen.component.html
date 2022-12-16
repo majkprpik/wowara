@@ -34,7 +34,7 @@
         </div>
         <div class="game-opponent">
           <app-creature
-              *ngIf="!youLost"
+              *ngIf="!youLost && !isCorrect"
             [isPlayerCreature]="false"
             [creature]="creatureOpponent"
             (playerChoseOption)="checkIfCorrect($event)"
@@ -51,13 +51,13 @@
           </div>
           <div class="result">
               <img class="value-icon" src="/assets/images/icons/iconpower.png">
-              <p class="value">{{creaturePlayer.attack}}</p>
+              <p class="value">{{creaturePlayer?.attack}}</p>
               <div>
-                  <img class="value-sign" src="/assets/images/icons/icongreater.png">
-                  <img class="value-sign" src="/assets/images/icons/iconsmaller.png">
+                  <img *ngIf="wasStronger" class="value-sign" src="/assets/images/icons/icongreater.png">
+                  <img *ngIf="!wasStronger" class="value-sign" src="/assets/images/icons/iconsmaller.png">
               </div>
               
-              <p class="value">{{creatureOpponent.attack}}</p>
+              <p class="value">{{creatureOpponent?.attack}}</p>
               <img class="value-icon2" src="/assets/images/icons/iconpower.png">
           </div>
       </div>
@@ -72,13 +72,13 @@
           </div>
           <div class="result">
               <img class="value-icon" src="/assets/images/icons/iconpower.png">
-              <p class="value">{{creaturePlayer.attack}}</p>
+              <p class="value">{{creaturePlayer?.attack}}</p>
               <div>
-                  <img *ngIf="!wasStronger" class="value-sign" src="/assets/images/icons/icongreater.png">
-                  <img *ngIf="wasStronger" class="value-sign" src="/assets/images/icons/iconsmaller.png">
+                  <img *ngIf="wasStronger" class="value-sign" src="/assets/images/icons/icongreater.png">
+                  <img *ngIf="!wasStronger" class="value-sign" src="/assets/images/icons/iconsmaller.png">
               </div>
               
-              <p class="value">{{creatureOpponent.attack}}</p>
+              <p class="value">{{creatureOpponent?.attack}}</p>
               <img class="value-icon2" src="/assets/images/icons/iconpower.png">
           </div>
       </div>
