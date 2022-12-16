@@ -7,6 +7,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CreatureComponent } from './creature/creature/creature.component';
 
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { HomeComponent } from './home/home.component';
+import { CounterComponent } from './counter/counter.component';
+import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,8 @@ import { CreatureComponent } from './creature/creature/creature.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: MainGameScreenComponent, pathMatch: 'full' }
+      { path: '', component: MainGameScreenComponent, pathMatch: 'full' },
+      { path: 'admin', component: AdminComponent }
     ])
   ],
   providers: [],

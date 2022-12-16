@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  clientID: '86c184a1b52149a8b03db4360a538211',
+  clientSecret: 'drVSIHapj4oqeFLCRwg4A5jakeY44UxJ',
+  wow_api_url: 'https://us.api.blizzard.com/data/wow',
 };
 
 /*

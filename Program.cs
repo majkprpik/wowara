@@ -1,10 +1,38 @@
+using Microsoft.EntityFrameworkCore;
+// using wowara.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+{
+    var services = builder.Services;
+    var env = builder.Environment;
+
+    services.AddDbContext<DataContext>();
+
+    services.AddScoped<ICreatureService, CreatureService>();
+    services.AddScoped<IHighestScoreService, HighestScoreService>();
+    
+    services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+     services.AddCors();
+}
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+ {
+    
+ });
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
