@@ -17,11 +17,17 @@ export class ScoreService {
       this.highestScores.next(data);
     });
   }
+
+  addScore(score: Score) {
+    return this.http.post(this.baseUrl + 'api/HighestScore/create', score).subscribe((data: any) => {
+      this.getScore();
+    });
+  }
 }
 
 
 export interface Score {
-  id: number;
+  id?: number;
   name: string;
   score: number;
 }

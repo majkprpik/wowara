@@ -1,6 +1,7 @@
 import { CreatureService } from './../../services/creature-service.service';
 import { CreatureModel } from './../../models/creature-model';
 import { Component, OnInit } from '@angular/core';
+import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
   selector: 'app-main-game-screen',
@@ -18,7 +19,7 @@ export class MainGameScreenComponent implements OnInit {
   public isCorrect:boolean=false;
   public wasStronger:boolean=false;
   
-  constructor(private creatureService: CreatureService) { this.creatureService.getAllCreatures()  }
+  constructor(private creatureService: CreatureService, private scoreService: ScoreService) { this.creatureService.getAllCreatures()  }
 
   ngOnInit() {
     
@@ -57,6 +58,7 @@ export class MainGameScreenComponent implements OnInit {
     this.creatureOpponent=this.creatureService.getRandomCreature()
   }
   gameLost(){
+    this.scoreService.addScore({name:'test', score:this.score})
     this.creatureService.resetCreatureList();
     this.youLost=true;
     setTimeout(()=>{

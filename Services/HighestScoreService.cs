@@ -30,7 +30,8 @@ public class HighestScoreService : IHighestScoreService
     {
         return await _context.HighestScores
             .Where(a => a.IsActive && !a.IsDeleted)
-            .OrderBy(a => a.Id)
+            .OrderByDescending(a => a.Score)
+            .Take(10)
             .ProjectTo<HighestScoreDTO>(_mapper.ConfigurationProvider)
             .ToListAsync();
     }
@@ -45,7 +46,9 @@ public class HighestScoreService : IHighestScoreService
 
     public async Task<bool> AddNewScore(HighestScoreDTO highestScoreDTO)
     {
-        var highestScore = _mapper.Map<HighestScore>(highestScoreDTO);
+        var highestScore = new HighestScore();
+        highestScore.Name = highestScoreDTO.Name;
+        highestScore.Score = highestScoreDTO.Score;
         highestScore.IsActive = true;
         highestScore.IsDeleted = false;
         
@@ -53,5 +56,5 @@ public class HighestScoreService : IHighestScoreService
         await _context.SaveChangesAsync();
 
         return true;
-    }    
+    }
 }
