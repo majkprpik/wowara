@@ -95,11 +95,75 @@ button {
     height: 100%;
 }
 .lost-screen{
-    background-color: aqua;
     width: 50vw;
     height: 80vh;
     position: absolute;
     bottom:0;
     right: 0;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.you-died-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-died {
+    background-image: url(/assets/images/icons/icondead.png);
+    background-image: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin-top: 20px;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.label-died {
+    margin-top: 32px;
+    font-family: warcraft;
+    color: white;
+    font-size: 26px;
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+}
+
+.value {
+    margin-top: 30px;
+    font-family: warcraft;
+    color: white;
+    font-size: 38px;
+}
+
+.value-icon {
+    margin-top: 25px;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.value-icon2 {
+    margin-top: 25px;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+}
+
+.value-sign {
+    margin-top: 35px;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
 }

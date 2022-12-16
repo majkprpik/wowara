@@ -40,20 +40,22 @@
   </div>
 
   <div *ngIf="youLost" class="lost-screen">
-    <div>
-      <img />
-      <p>you died...</p>
-    </div>
-    <div>
-        <img>
-        <p>{{creaturePlayer.attack}}</p>
-        <div>
-            <img>
-            <img>
+    <div class="you-died">
+        <div class="you-died-label">
+          <div class="icon-died"></div>
+          <p class="label-died">you died...</p>
         </div>
-        <img>
-        <p>{{creatureOpponent.attack}}</p>
-        
+        <div class="result">
+            <img class="value-icon" src="/assets/images/icons/iconpower.png">
+            <p class="value">{{creaturePlayer.attack}}</p>
+            <div>
+                <img class="value-sign" src="/assets/images/icons/icongreater.png">
+                <img class="value-sign" src="/assets/images/icons/iconsmaller.png">
+            </div>
+            
+            <p class="value">{{creatureOpponent.attack}}</p>
+            <img class="value-icon2" src="/assets/images/icons/iconpower.png">
+        </div>
     </div>
   </div>
 </div>
