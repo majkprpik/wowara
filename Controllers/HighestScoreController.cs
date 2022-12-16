@@ -10,11 +10,11 @@ public class HighestScoreController : ApiBase
     protected readonly IConfiguration Configuration;
 
     public HighestScoreController(
-        IHighestScoreService _highestScoreService,
+        IHighestScoreService highestScoreService,
         IMapper mapper,
         IConfiguration configuration)
     {
-        _highestScoreService = _highestScoreService;
+        _highestScoreService = highestScoreService;
         _mapper = mapper;
         Configuration = configuration;
     }
