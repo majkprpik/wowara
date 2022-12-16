@@ -1,0 +1,9 @@
+<div *ngIf="!isPlaying" (click)="play()">
+    <button>Play</button>
+</div>
+
+<div *ngIf="isPlaying">
+    <div>{{"Score:"}}</div>
+    <app-creature [isPlayerCreature]="true" [creature]="creatures[0]"></app-creature>
+    <app-creature [isPlayerCreature]="false" [creature]="creatures[0]"></app-creature>
+</div>

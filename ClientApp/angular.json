@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "wowara"
+  "defaultProject": "wowara",
+  "cli": {
+    "analytics": "28b6251e-5d37-49d0-b950-1acf22d851e7"
+  }
 }
