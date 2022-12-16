@@ -27,7 +27,7 @@ export class CreatureService{
     }
 
   getRandomCreature(): CreatureModel{
-   let randomIndex= Math.floor(Math.random()*this.creatureList.length)
+   let randomIndex= Math.floor(Math.random()*this.creaturePlayingList.length)
 
    let creature=this.creaturePlayingList[0];
  
