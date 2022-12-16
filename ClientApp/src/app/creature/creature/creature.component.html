@@ -1,9 +1,9 @@
 <div>
     <img>
-    <p>{{"Creature Name"}}</p>
+    <p>{{creature.name}}</p>
     <div>
-        <img>
-        <p *ngIf="isPlayerCreature">{{"Power:"}}</p>
+        <img [src]='creature.imageUrl'>
+        <p *ngIf="isPlayerCreature">{{creature.attack}}</p>
         <button *ngIf="!isPlayerCreature" (click)="chooseBtn('stronger')">Stronger</button>
         <button *ngIf="!isPlayerCreature" (click)="chooseBtn('weaker')">Weaker</button>
     </div>

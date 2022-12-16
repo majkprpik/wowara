@@ -1,5 +1,6 @@
 export interface CreatureModel {
-    icon: string,
+    id:number,
+    imageUrl: string,
     name: string,
-    power: number,
+    attack: number,
 }
