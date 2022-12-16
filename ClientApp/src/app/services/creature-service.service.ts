@@ -7,6 +7,7 @@ import { Inject, Injectable } from '@angular/core';
 })
 export class CreatureService{
   creatureList: CreatureModel[]=[];
+  creaturePlayingList: CreatureModel[]=[]
   creature: CreatureModel;
   baseUrl: string;
 
@@ -20,19 +21,26 @@ export class CreatureService{
         this.baseUrl + 'api/Creature/GetAll'
       ).subscribe(data=>{
         this.creatureList= data
-        
+        this.creaturePlayingList=this.creatureList
       })
       
     }
 
   getRandomCreature(): CreatureModel{
    let randomIndex= Math.floor(Math.random()*this.creatureList.length)
+
+   let creature=this.creaturePlayingList[0];
  
-   let creature= this.creatureList.splice(randomIndex,1)[0]
-   console.log(this.creatureList);
-   return creature
+   if(this.creaturePlayingList.length > 1){
+     creature= this.creaturePlayingList.splice(randomIndex,1)[0]
+     //console.log(this.creatureList);
+     
+    }
+    return creature
    
-   
+  }
+  resetCreatureList(){
+    this.creaturePlayingList=this.creatureList;
   }
 
   }

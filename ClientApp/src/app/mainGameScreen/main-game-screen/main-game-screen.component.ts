@@ -12,7 +12,9 @@ export class MainGameScreenComponent implements OnInit {
   public creatureOpponent: CreatureModel;
   public isPlayersCreature: boolean=false;
   public isPlaying: boolean=false;
-  public score: number=1000;
+  public score: number=0;
+  public youLost=false;
+  public playAgainScreen:boolean=false;
   
   constructor(private creatureService: CreatureService) { this.creatureService.getAllCreatures()  }
 
@@ -28,16 +30,22 @@ export class MainGameScreenComponent implements OnInit {
   
   checkIfCorrect(choice:string){
     //console.log(choice);
-    if(choice==='stronger' && this.creaturePlayer.attack > this.creatureOpponent.attack){
-      this.score += 100;
-    } else if(choice==='weaker' && this.creaturePlayer.attack < this.creatureOpponent.attack){
-      this.score += 100;
+    if(choice==='stronger' && this.creaturePlayer.attack < this.creatureOpponent.attack){
+      this.score += 1;
+    } else if(choice==='weaker' && this.creaturePlayer.attack > this.creatureOpponent.attack){
+      this.score += 1;
     }
     else{
-      this.score -= 100;
+      this.gameLost()
+      return
     }
     this.creaturePlayer=this.creatureOpponent
     this.creatureOpponent=this.creatureService.getRandomCreature()
+  }
+  gameLost(){
+    this.creatureService.resetCreatureList();
+    this.youLost=true;
+
   }
 
 }

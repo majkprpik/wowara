@@ -1,32 +1,59 @@
 <div class="main-container" *ngIf="!isPlaying">
-    <div class="logo-container">
-        <img src="/assets/images/gamelogo/wowaralogo.png">
+  <div class="logo-container">
+    <img src="/assets/images/gamelogo/wowaralogo.png" />
+  </div>
+  <div class="button-container">
+    <div class="buttonPlayDiv" *ngIf="!isPlaying" (click)="play()">
+      <button class="buttonplay">
+        <img src="/assets/images/buttons/buttonplay.png" />
+      </button>
     </div>
-    <div class="button-container">
-        <div class="buttonPlayDiv" *ngIf="!isPlaying" (click)="play()">
-            <button class="buttonplay">
-                <img src="/assets/images/buttons/buttonplay.png"/>
-              </button>
-        </div>
-    </div>
+  </div>
 </div>
 
 <div *ngIf="isPlaying">
-    <div class="game-container">
-        <div class="game-header">
-            <div class="game-logo">
-                <img src="/assets/images/gamelogo/wowaralogo.png">
-            </div>
-            <div class="game-score">
-                <div class="score">{{score}}</div>
-            </div>
+  <div class="game-container">
+    <div class="game-header">
+      <div class="game-logo">
+        <img src="/assets/images/gamelogo/wowaralogo.png" />
+      </div>
+      <div class="game-score">
+        <div class="score">{{ score }}</div>
+      </div>
+    </div>
+    <div class="game-body">
+      <div class="game-player">
+        <app-creature
+          [isPlayerCreature]="true"
+          [creature]="creaturePlayer"
+          (playerChoseOption)="checkIfCorrect($event)"
+        ></app-creature>
+      </div>
+      <div class="game-opponent">
+        <app-creature
+          [isPlayerCreature]="false"
+          [creature]="creatureOpponent"
+          (playerChoseOption)="checkIfCorrect($event)"
+        ></app-creature>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="youLost" class="lost-screen">
+    <div>
+      <img />
+      <p>you died...</p>
+    </div>
+    <div>
+        <img>
+        <p>{{creaturePlayer.attack}}</p>
+        <div>
+            <img>
+            <img>
         </div>
-        <div class="game-body">
-            <div class="game-player">
-                <app-creature [isPlayerCreature]="true" [creature]="creaturePlayer" (playerChoseOption)="checkIfCorrect($event)"></app-creature>
-            </div>
-            <div class="game-opponent">
-                <app-creature [isPlayerCreature]="false" [creature]="creatureOpponent" (playerChoseOption)="checkIfCorrect($event)"></app-creature>
-            </div>
-    </div>   
+        <img>
+        <p>{{creatureOpponent.attack}}</p>
+        
+    </div>
+  </div>
 </div>
