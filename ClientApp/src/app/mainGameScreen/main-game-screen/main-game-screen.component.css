@@ -82,3 +82,12 @@ button {
     font-size: 24px;
     color: white;
 }
+
+.game-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
