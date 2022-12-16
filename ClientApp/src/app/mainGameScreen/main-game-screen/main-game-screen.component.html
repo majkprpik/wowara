@@ -32,7 +32,7 @@
       </div>
       <div class="game-opponent">
         <app-creature
-            *ngIf="!youLost && !isCorrect && !youLost"
+            *ngIf="!youLost"
           [isPlayerCreature]="false"
           [creature]="creatureOpponent"
           (playerChoseOption)="checkIfCorrect($event)"
@@ -51,8 +51,8 @@
             <img class="value-icon" src="/assets/images/icons/iconpower.png">
             <p class="value">{{creaturePlayer.attack}}</p>
             <div>
-                <img *ngIf="wasStronger" class="value-sign" src="/assets/images/icons/icongreater.png">
-                <img *ngIf="!wasStronger" class="value-sign" src="/assets/images/icons/iconsmaller.png">
+                <img class="value-sign" src="/assets/images/icons/icongreater.png">
+                <img class="value-sign" src="/assets/images/icons/iconsmaller.png">
             </div>
             
             <p class="value">{{creatureOpponent.attack}}</p>
@@ -72,6 +72,7 @@
     </div>
     <button class="play-again-button" (click)="playAgain()"> <img src="/assets/images/buttons/buttonplayagain.png" /></button>
 </div>
+<<<<<<< HEAD
 
 <div *ngIf="isCorrect" class="lost-screen">
     <div class="you-died">
