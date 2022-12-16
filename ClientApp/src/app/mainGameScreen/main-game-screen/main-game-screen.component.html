@@ -1,9 +1,32 @@
-<div *ngIf="!isPlaying" (click)="play()">
-    <button>Play</button>
+<div class="main-container" *ngIf="!isPlaying">
+    <div class="logo-container">
+        <img src="/assets/images/gamelogo/wowaralogo.png">
+    </div>
+    <div class="button-container">
+        <div class="buttonPlayDiv" *ngIf="!isPlaying" (click)="play()">
+            <button class="buttonplay">
+                <img src="/assets/images/buttons/buttonplay.png"/>
+              </button>
+        </div>
+    </div>
 </div>
 
 <div *ngIf="isPlaying">
-    <div>{{score}}</div>
-    <app-creature [isPlayerCreature]="true" [creature]="creaturePlayer" (playerChoseOption)="checkIfCorrect($event)"></app-creature>
-    <app-creature [isPlayerCreature]="false" [creature]="creatureOpponent" (playerChoseOption)="checkIfCorrect($event)"></app-creature>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="game-logo">
+                <img src="/assets/images/gamelogo/wowaralogo.png">
+            </div>
+            <div class="game-score">
+                <div class="score">{{"Score:"}}</div>
+            </div>
+        </div>
+        <div class="game-body">
+            <div class="game-player">
+                <app-creature [isPlayerCreature]="true" [creature]="creatures[0]"></app-creature>
+            </div>
+            <div class="game-opponent">
+                <app-creature [isPlayerCreature]="false" [creature]="creatures[0]"></app-creature>
+            </div>
+    </div>   
 </div>
