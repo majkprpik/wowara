@@ -8,17 +8,20 @@ import { AppComponent } from './app.component';
 import { CreatureComponent } from './creature/creature/creature.component';
 
 import { AdminComponent } from './admin/admin.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatureComponent,
     MainGameScreenComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: MainGameScreenComponent, pathMatch: 'full' },
       { path: 'admin', component: AdminComponent }

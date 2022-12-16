@@ -1,1 +1,33 @@
-<p>admin works!</p>
+<!-- creature family index listy -->
+<div class="lists">
+    <div class="family-list">
+        <h3>Families</h3>
+        <div (click)="selectFamily(f.name)" class="family" *ngFor="let f of families">
+            {{f.name}}
+            {{f.id}}
+            <img [src]="f.imageUrl" alt="">
+        </div>
+    </div>
+    <div class="creature-list">
+        <h3>Creatures</h3>
+        <div (click)="selectCreature(c.id)" class="creature" *ngFor="let c of creatures">
+            {{c.name}}
+            {{c.id}}
+            <img [src]="c.imageUrl" alt="">
+        </div>
+    </div>
+    <div class="add-new-creature">
+        <h3>Add New Creature</h3>
+            <img [src]="newCreature.imageUrl" alt="">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input [(ngModel)]="newCreature.name" type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="name">Attack</label>
+                <input min="1" [(ngModel)]="newCreature.attack" type="number" class="form-control" id="attack" placeholder="0">
+            </div>
+        
+            <button type="submit" class="btn btn-primary" (click)="addNewCreature()">Submit</button>      
+    </div>
+</div>

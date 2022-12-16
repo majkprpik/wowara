@@ -7,6 +7,7 @@ public interface ICreatureService
 {
     Task<IEnumerable<CreatureDTO>> GetAll();
     Task<CreatureDTO> GetById(int id);
+    Task<bool> AddCreature(CreatureDTO creatureDTO);
 }
 
 public class CreatureService : ICreatureService
@@ -44,6 +45,11 @@ public class CreatureService : ICreatureService
 
     public async Task<bool> AddCreature(CreatureDTO creatureDTO)
     {
+        bool sameAttack = await _context.Creatures.AnyAsync(a => a.Attack == creatureDTO.Attack);
+        if (sameAttack)
+        {
+            throw new Exception("Attack " + creatureDTO.Attack + " is already taken");
+        }
         var creature = new Creature();
         creature.Name = creatureDTO.Name;
         creature.ImageUrl = creatureDTO.ImageUrl;

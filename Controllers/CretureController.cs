@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using wowara.DTOs;
 using wowara.Helpers;
 
 public class CreatureController : ApiBase
@@ -30,5 +31,21 @@ public class CreatureController : ApiBase
     {
         var activity = _creatureService.GetById(id);
         return Ok(activity);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody]CreatureDTO creatureDto)
+    {
+        try
+        {
+            // save 
+            await _creatureService.AddCreature(creatureDto);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            // return error message if there was an exception
+            return BadRequest(new { message = ex.Message });
+        }
     }
 }
