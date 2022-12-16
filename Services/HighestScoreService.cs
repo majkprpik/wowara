@@ -5,8 +5,9 @@ using wowara.DTOs;
 
 public interface IHighestScoreService
 {
-    Task<IEnumerable<HighestScoreDTO>> GetAll();
+    Task<IEnumerable<HighestScoreDTO>> GetAll(int page = 1, int pageSize = 10);
     Task<HighestScoreDTO> GetById(int id);
+    Task<bool> AddNewScore(HighestScoreDTO highestScoreDTO);
 }
 
 public class HighestScoreService : IHighestScoreService
@@ -25,7 +26,7 @@ public class HighestScoreService : IHighestScoreService
         Configuration = configuration;
     }
 
-    public async Task<IEnumerable<HighestScoreDTO>> GetAll()
+    public async Task<IEnumerable<HighestScoreDTO>> GetAll(int page = 1, int pageSize = 10)
     {
         return await _context.HighestScores
             .Where(a => a.IsActive && !a.IsDeleted)
@@ -41,4 +42,16 @@ public class HighestScoreService : IHighestScoreService
             .ProjectTo<HighestScoreDTO>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync();
     }
+
+    public async Task<bool> AddNewScore(HighestScoreDTO highestScoreDTO)
+    {
+        var highestScore = _mapper.Map<HighestScore>(highestScoreDTO);
+        highestScore.IsActive = true;
+        highestScore.IsDeleted = false;
+        
+        await _context.HighestScores.AddAsync(highestScore);
+        await _context.SaveChangesAsync();
+
+        return true;
+    }    
 }
