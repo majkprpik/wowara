@@ -15,6 +15,8 @@ export class MainGameScreenComponent implements OnInit {
   public score: number=0;
   public youLost=false;
   public playAgainScreen:boolean=false;
+  public isCorrect:boolean=false;
+  public wasStronger:boolean=false;
   
   constructor(private creatureService: CreatureService) { this.creatureService.getAllCreatures()  }
 
@@ -30,13 +32,25 @@ export class MainGameScreenComponent implements OnInit {
   
   checkIfCorrect(choice:string){
     //console.log(choice);
+    this.wasStronger=false;
     if(choice==='stronger' && this.creaturePlayer.attack < this.creatureOpponent.attack){
+      this.creaturePlayer.attack < this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
       this.score += 1;
+      setTimeout(()=>{
+        this.isCorrect = false;
+      },1500)
+      this.isCorrect=true;
     } else if(choice==='weaker' && this.creaturePlayer.attack > this.creatureOpponent.attack){
+      this.creaturePlayer.attack < this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
       this.score += 1;
+      this.isCorrect=true;
+      setTimeout(()=>{
+        this.isCorrect = false;
+      },1500)
     }
     else{
-      this.gameLost()
+      this.creaturePlayer.attack > this.creatureOpponent.attack ? this.wasStronger=true : this.wasStronger = false;
+      this.gameLost()   
       return
     }
     this.creaturePlayer=this.creatureOpponent
@@ -47,7 +61,7 @@ export class MainGameScreenComponent implements OnInit {
     this.youLost=true;
     setTimeout(()=>{
       this.playAgainScreen = true;
-    },1000)
+    },2500)
 
   }
   playAgain(){
