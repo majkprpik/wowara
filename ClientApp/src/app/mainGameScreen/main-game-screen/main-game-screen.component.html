@@ -4,7 +4,7 @@
     </div>
     <div class="button-container">
       <p class="input-label">Username</p>
-      <input maxlength="12" class="username-input" [(ngModel)]="playerName" type="text">
+      <input maxlength="11" class="username-input" [(ngModel)]="playerName" type="text">
       <div class="buttonPlayDiv" *ngIf="!isPlaying" (click)="play()">
         <button class="buttonplay">
           <img src="/assets/images/buttons/buttonplay.png" />
@@ -17,9 +17,9 @@
   <div *ngIf="isPlaying" >
     <div class="game-container" >
       <div class="game-header">
-        <div class="game-logo">
+        <!-- <div class="game-logo">
           <img src="/assets/images/gamelogo/wowaralogo.png" />
-        </div>
+        </div> -->
         <div class="game-score">
           <div class="score">{{ score }}</div>
         </div>
@@ -93,4 +93,13 @@
             <p class="final-title">Hemet Nesingwary is proud of you!</p>
         </div>
         <button class="play-again-button" (click)="playAgain()"> <img src="/assets/images/buttons/buttonplayagain.png" /></button>
+        <div class="highest-scores">
+          <div class="highest-score-label"></div>
+          <div *ngFor="let hs of highestScores" class="highest-score-value">
+            <div class="score-value">
+              <p>-&nbsp;{{hs.name}}</p>
+              <p>:&nbsp;&nbsp;{{hs.score}}</p>
+            </div>
+          </div>
+        </div>
     </div>
